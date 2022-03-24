@@ -1,6 +1,5 @@
 function getGame(id) {
-  let URL =
-    "https://video-game-ms.herokuapp.com/api/game-of-the-year/game/" + id;
+  let URL = "https://video-game-ms.herokuapp.com/api/game/" + id;
   let request = new XMLHttpRequest();
   request.open("GET", URL);
   request.send();
@@ -12,7 +11,6 @@ function getGame(id) {
       console.log(json.releaseYear);
 
       const content = `
-            <section class="game-card">
             <section class="game-header">
                 <h3>Game of the Year ${json.releaseYear}</h3>
                 <img src=${json.imageUrl} alt="${json.name} banner">
@@ -26,12 +24,12 @@ function getGame(id) {
                 </ul>
                 <p>${json.description}</p>
             </section>
-        </section>
             `;
-      const apiResponse = document.createElement("api-response");
-      apiResponse.classList.add("api-response");
-      apiResponse.innerHTML = content;
-      document.querySelector(".game-reviews").append(apiResponse);
+
+      const gameCard = document.createElement("game-card");
+      gameCard.classList.add("game-card");
+      gameCard.innerHTML = content;
+      document.getElementById(`goty-${json.releaseYear}`).appendChild(gameCard);
     } else {
       console.log(`Error ${request.status} ${request.statusText}`);
     }
