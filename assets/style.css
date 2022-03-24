@@ -54,6 +54,14 @@ hr {
   opacity: 25%;
 }
 
+ul {
+  font-size: 20px;
+}
+
+p {
+  font-size: 20px;
+}
+
 .break {
   background-color: #d94f5c;
   opacity: 100%;
@@ -88,12 +96,14 @@ footer {
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   transform: translate(-50%, -50%);
   margin: 0;
 }
 
 .button {
-  font-size: 15px;
+  font-size: 30px;
   visibility: hidden;
   padding: 13px 25px;
   -webkit-transition: all 0.3s ease-in-out;
@@ -110,7 +120,7 @@ footer {
   visibility: inherit;
   opacity: 1;
   position: absolute;
-  top: 55%;
+  top: 56%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -161,7 +171,7 @@ footer {
 }
 
 .menu a {
-  font-size: 22px;
+  font-size: 30px;
   color: #777;
   text-decoration: none;
   transition: all 0.45s;
@@ -199,6 +209,8 @@ footer {
   height: 3px;
   background-color: #777;
   margin: 6px 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .open .bar1 {
@@ -254,7 +266,7 @@ footer {
 }
 
 /* <<<<< Game >>>>> */
-.game-card {
+.goty {
   border-radius: 20px;
   border: #d94f5c;
   padding: 20px;
@@ -309,14 +321,14 @@ footer {
 }
 
 .team .gamer p {
-  margin: 40px;
+  margin: 0px 40px;
   display: flex;
 }
 
 /* <<<<< Reactive >>>>> */
 @media screen and (min-width: 1800px) {
   .team .gamer p {
-    margin: 80px;
+    margin: 40px;
   }
 }
 
@@ -359,14 +371,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 600px) {
-  .welcome h1 {
-    font-size: 250%;
-  }
-  h1 {
-    font-size: 28px;
-  }
-
+@media screen and (max-width: 700px) {
   .menu {
     display: none;
   }
@@ -376,9 +381,22 @@ footer {
   }
 }
 
+@media screen and (max-width: 600px) {
+  .welcome h1 {
+    font-size: 250%;
+  }
+  h1 {
+    font-size: 28px;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .welcome h1 {
     font-size: 190%;
+  }
+
+  .button {
+    font-size: 20px;
   }
 }
 
