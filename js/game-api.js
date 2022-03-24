@@ -4,11 +4,8 @@ function getGame(id) {
   request.open("GET", URL);
   request.send();
   request.onload = () => {
-    console.log(request);
     if (request.status == 200) {
-      var json = JSON.parse(request.response);
-      console.log(json);
-      console.log(json.releaseYear);
+      let json = JSON.parse(request.response);
 
       const content = `
             <section class="game-header">
@@ -26,10 +23,49 @@ function getGame(id) {
             </section>
             `;
 
-      const gameCard = document.createElement("game-card");
+      const gameCard = document.createElement("section");
       gameCard.classList.add("game-card");
       gameCard.innerHTML = content;
       document.getElementById(`goty-${json.releaseYear}`).appendChild(gameCard);
+    } else {
+      console.log(`Error ${request.status} ${request.statusText}`);
+    }
+  };
+}
+
+function getRecentReleases() {
+  let URL = "https://video-game-ms.herokuapp.com/api/game/recent-releases";
+  let request = new XMLHttpRequest();
+  let json;
+  request.open("GET", URL);
+  request.send();
+  request.onload = () => {
+    if (request.status == 200) {
+      json = JSON.parse(request.response);
+      console.log(json);
+
+      for (var i = 0; i < json.length; i++) {
+        var game = json[i];
+        const recent_games_content = `
+                    <section class="game-card">
+                        <img src="${game.verticalImageUrl}" alt="${game.name} banner">
+                        <section class="game-info">
+                            <h3>${game.name}</h3>
+                            <ul>
+                                <li><b>Release:</b> ${game.releaseDate}</li>
+                                <li><b>Developer:</b> ${game.developer}</li>
+                                <li><b>Publisher:</b> ${game.publisher}</li>
+                                <li><b>Open Critic Score:</b> ${game.score}</li>
+                            </ul>
+                        </section>
+                    </section>
+        `;
+
+        const recentRelease = document.createElement("section");
+        recentRelease.classList.add("recent-release");
+        recentRelease.innerHTML = recent_games_content;
+        document.querySelector(".recent-releases-grid").append(recentRelease);
+      }
     } else {
       console.log(`Error ${request.status} ${request.statusText}`);
     }

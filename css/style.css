@@ -24,10 +24,14 @@ header .content {
 }
 
 .content {
-  max-width: 90%;
+  max-width: 85%;
   margin: 0 auto;
   padding: 25px 0px 50px 0;
   line-height: 1.25;
+}
+
+a {
+  text-decoration: none;
 }
 
 h1 {
@@ -152,6 +156,40 @@ footer {
 }
 
 /* <<<<< Home Page >>>>> */
+.recent-releases-grid {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: auto auto auto;
+  margin: 20px 0px;
+}
+
+.recent-release .game-card {
+  border-radius: 20px;
+  border: #d94f5c;
+  border-style: solid;
+  border-width: 4px;
+  background-color: white;
+  min-height: 720px;
+  margin: 0;
+  padding: 0;
+}
+
+.recent-release img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px 15px 0px 0px;
+  background-color: white;
+  z-index: -1;
+  max-height: 480px;
+}
+
+.recent-release .game-card .game-info {
+  padding: 20px 0px 0px 20px;
+}
+
+.recent-release .game-card .game-info ul li {
+  color: black;
+}
 
 /* <<<<< Menu >>>>> */
 .menu {
@@ -266,7 +304,7 @@ footer {
 }
 
 /* <<<<< Game >>>>> */
-.goty {
+.game-card {
   border-radius: 20px;
   border: #d94f5c;
   padding: 20px;
@@ -281,6 +319,11 @@ footer {
   font-size: 36px;
   font-weight: bold;
   margin: 0px 0px 40px 0px;
+}
+
+.game-card .game-header ul,
+li {
+  color: white;
 }
 
 .game-card .game-header img {
@@ -325,6 +368,21 @@ footer {
   display: flex;
 }
 
+/* <<<<< Articles >>>>> */
+.article p {
+  margin: 20px 0px;
+}
+
+.article-card a h2:hover {
+  font-weight: bold;
+  color: #777;
+}
+
+/* <<<<< Footer >>>>> */
+footer {
+  margin: 60px 0px 0px 0px;
+}
+
 /* <<<<< Reactive >>>>> */
 @media screen and (min-width: 1800px) {
   .team .gamer p {
@@ -332,7 +390,13 @@ footer {
   }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (min-width: 1081px) {
+  .content {
+    max-width: 1080px;
+  }
+}
+
+@media screen and (max-width: 1112px) {
   .content {
     padding-top: 0px;
   }
@@ -355,7 +419,7 @@ footer {
     text-align: center;
   }
 
-  .team .gamer img {
+  .team img {
     text-align: center;
     float: none;
     width: auto;
@@ -369,15 +433,30 @@ footer {
     margin: 10px 0px 0px 0px;
     display: flex;
   }
+
+  .recent-releases-grid {
+    grid-template-columns: auto auto;
+  }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 736px) {
   .menu {
     display: none;
   }
 
   #hamburger-icon {
     display: block;
+  }
+
+  .recent-releases-grid {
+    grid-template-columns: auto;
+  }
+
+  .recent-release {
+    margin: 0;
+  }
+  .recent-release .game-card {
+    margin: 0;
   }
 }
 
