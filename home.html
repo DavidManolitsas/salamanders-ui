@@ -9,7 +9,7 @@
     <script src="js/game-api.js"></script>
 </head>
 
-<body onload="getGame(12088); getRecentReleases()">
+<body onload="getGame(12088); getRecentReleases(); getUpcomingReleases()">
     <main>
         <header>
             <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
@@ -35,21 +35,27 @@
             <hr class="break" />
         </header>
         <section class="content">
-            <h2>Recent Releases</h2>
-            <section class="recent-releases-grid">
-            </section>
-        </section>
-        <hr class="break" />
-        <section class="content">
-            <section class="goty">
-                <div class="game-reviews">
-                    <div id="goty-2021">
+            <div class="home">
+                <section class="upcoming-releases">
+                    <h2>Coming Soon</h2>
+                    <div class="coming-soon-grid">
                     </div>
-                </div>
-            </section>
-        </section>
-        <hr class="break" />
-        <section class="content">
+                </section>
+                <hr class="break" />
+                <section class="recent-releases">
+                    <h2>Recent Releases</h2>
+                    <div class="recent-releases-grid">
+                    </div>
+                </section>
+                <hr class="break" />
+                <section class="goty">
+                    <div class="game-reviews">
+                        <div id="goty-2021">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <hr class="break" />
             <section class="about">
                 <h2>Why Salamanders?</h2>
                 <p>The inspiration for the team's name came abouts when superTROOPER95, Lord Muk and turtlesak engaged
@@ -64,7 +70,7 @@
             <div class="content">
                 <section class="contact">
                     <h2>Want to play with us?</h2>
-                    <span>Add us on Xbox Live, PSN or Steam</span>
+                    <p>Add us on Xbox Live, PSN or Steam</p>
                 </section>
             </div>
         </footer>

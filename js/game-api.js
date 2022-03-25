@@ -24,7 +24,7 @@ function getGame(id) {
             `;
 
       const gameCard = document.createElement("section");
-      gameCard.classList.add("game-card");
+      gameCard.classList.add("game-card-big");
       gameCard.innerHTML = content;
       document.getElementById(`goty-${json.releaseYear}`).appendChild(gameCard);
     } else {
@@ -44,12 +44,18 @@ function getRecentReleases() {
       json = JSON.parse(request.response);
       console.log(json);
 
-      for (var i = 0; i < json.length; i++) {
+      let len = json.length;
+
+      if (len > 6) {
+        len = 6;
+      }
+
+      for (var i = 0; i < len; i++) {
         var game = json[i];
         const recent_games_content = `
                     <section class="game-card">
                         <img src="${game.verticalImageUrl}" alt="${game.name} banner">
-                        <section class="game-info">
+                        <section class="game-card-info">
                             <h3>${game.name}</h3>
                             <ul>
                                 <li><b>Release:</b> ${game.releaseDate}</li>
@@ -65,6 +71,50 @@ function getRecentReleases() {
         recentRelease.classList.add("recent-release");
         recentRelease.innerHTML = recent_games_content;
         document.querySelector(".recent-releases-grid").append(recentRelease);
+      }
+    } else {
+      console.log(`Error ${request.status} ${request.statusText}`);
+    }
+  };
+}
+
+function getUpcomingReleases() {
+  let URL = "https://video-game-ms.herokuapp.com/api/game/coming-soon";
+  let request = new XMLHttpRequest();
+  let json;
+  request.open("GET", URL);
+  request.send();
+  request.onload = () => {
+    if (request.status == 200) {
+      json = JSON.parse(request.response);
+      console.log(json);
+
+      let len = json.length;
+
+      if (len > 3) {
+        len = 3;
+      }
+
+      for (var i = 0; i < len; i++) {
+        var game = json[i];
+        const recent_games_content = `
+                    <section class="game-card">
+                        <img src="${game.verticalImageUrl}" alt="${game.name} banner">
+                        <section class="game-card-info">
+                            <h3>${game.name}</h3>
+                            <ul>
+                                <li><b>Release:</b> ${game.releaseDate}</li>
+                                <li><b>Developer:</b> ${game.developer}</li>
+                                <li><b>Publisher:</b> ${game.publisher}</li>
+                            </ul>
+                        </section>
+                    </section>
+        `;
+
+        const recentRelease = document.createElement("section");
+        recentRelease.classList.add("coming-soon");
+        recentRelease.innerHTML = recent_games_content;
+        document.querySelector(".coming-soon-grid").append(recentRelease);
       }
     } else {
       console.log(`Error ${request.status} ${request.statusText}`);
