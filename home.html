@@ -9,65 +9,75 @@
     <script src="js/game-api.js"></script>
 </head>
 
-<body onload="getGame(12088); getRecentReleases()">
+<body onload="getGame(12088); getRecentReleases(); getUpcomingReleases()">
     <main>
-        <header>
-            <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-                <ul class="mobile-menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="goty.html">Game of the Year</a></li>
-                    <li><a href="articles.html">Articles</a></li>
-                </ul>
+        <nav>
+            <div class="navbar">
+                <div class="container nav-container">
+                    <input class="checkbox" type="checkbox" name="" id="" />
+                    <div class="hamburger-lines">
+                        <span class="line line1"></span>
+                        <span class="line line2"></span>
+                        <span class="line line3"></span>
+                    </div>
+                    <div class="menu-items">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="goty.html">Game of the Year</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                    </div>
+                </div>
             </div>
-            <section class="content">
-                <h1>WELCOME TO THE SALAMANDERS</h1>
-            </section>
-            <ul class=" menu">
+        </nav>
+        <header>
+            <h1>WELCOME TO THE SALAMANDERS</h1>
+            <ul class="menu">
                 <li><a href="#">Home</a></li>
                 <li><a href="team.html">Team</a></li>
                 <li><a href="goty.html">Game of the Year</a></li>
                 <li><a href="articles.html">Articles</a></li>
             </ul>
-            <hr class="break" />
         </header>
-        <section class="content">
-            <h2>Recent Releases</h2>
-            <section class="recent-releases-grid">
-            </section>
-        </section>
-        <hr class="break" />
-        <section class="content">
-            <section class="goty">
-                <div class="game-reviews">
-                    <div id="goty-2021">
-                    </div>
-                </div>
-            </section>
-        </section>
-        <hr class="break" />
-        <section class="content">
-            <section class="about">
-                <h2>Why Salamanders?</h2>
-                <p>The inspiration for the team's name came abouts when superTROOPER95, Lord Muk and turtlesak engaged
-                    in a
-                    brutal Call of Duty: Black Ops split screen game. Where superTROOPER95 deployed the
-                    infamous "drop shot" technique to rack up several cheap kills, which drew a reponse from turtlesak
-                    <q>Get off the fucking ground, you Salamander!</q>
-                </p>
-            </section>
-        </section>
-        <footer>
+        <div class="home">
             <div class="content">
-                <section class="contact">
-                    <h2>Want to play with us?</h2>
-                    <span>Add us on Xbox Live, PSN or Steam</span>
+                <section class="upcoming-releases">
+                    <h2>Coming Soon</h2>
+                    <div class="coming-soon-grid">
+                    </div>
                 </section>
             </div>
-        </footer>
+            <div class="content">
+                <section class="recent-releases">
+                    <h2>Recent Releases</h2>
+                    <div class="recent-releases-grid">
+                    </div>
+                </section>
+            </div>
+            <div class="content">
+                <section class="goty">
+                    <div class="game-reviews">
+                        <div id="goty-2021">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="content">
+                <section class="about">
+                    <h2>Why Salamanders?</h2>
+                    <p>The inspiration for the team's name came abouts when superTROOPER95, Lord Muk and turtlesak
+                        engaged
+                        in a
+                        brutal Call of Duty: Black Ops split screen game. Where superTROOPER95 deployed the
+                        infamous "drop shot" technique to rack up several cheap kills, which drew a reponse from
+                        turtlesak
+                        <q>Get off the fucking ground, you Salamander!</q>
+                    </p>
+                </section>
+            </div>
+        </div>
+        <footer>
+            <h2>Want to play with us?</h2>
+            <p>Add us on Xbox Live, PSN or Steam</p>
     </main>
 </body>
 
